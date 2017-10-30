@@ -1,5 +1,9 @@
 class AuthorsController < ApplicationController
 
+	def index
+	@author = Author.all
+  end
+
   def show
     @author = Author.find(params[:id])
   end
@@ -10,11 +14,7 @@ class AuthorsController < ApplicationController
 
   def edit
 	@author = Author.find(params[:id])
-  end
-  
-  def index
-	@author = Author.all
-  end
+  end  
 
   def create
     @author = Author.new(author_params)
@@ -34,6 +34,13 @@ class AuthorsController < ApplicationController
 	else	
 		render 'edit'
 	end
+  end
+  
+  def destroy
+	@author = Author.find(params[:id])
+	@author.destroy
+	
+	redirect_to authors_path
   end
   
   private 
