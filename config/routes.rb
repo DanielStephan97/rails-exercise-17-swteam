@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   
   resources :authors
+  resources :papers
   root 'home#index'
  
   # Example of regular route:
