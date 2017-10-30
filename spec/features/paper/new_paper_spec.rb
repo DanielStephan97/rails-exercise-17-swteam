@@ -5,5 +5,10 @@ describe "New paper page", type: :feature do
   it "should render withour error" do
     visit new_paper_path
   end
+  
+  it "should have a field 'Title'" do
+	visit new_paper_path
+	expect(page).to have_field('Title')
+  end
 
 end
