@@ -14,8 +14,14 @@ RSpec.describe Author, type: :model do
 		expect(@author.name).to eq("Alan Turing")
 	end
 		
+	it "sould not validate without a Last name" do
+		@author = author
+		@author.last_name = nil
+		expect(@author).not_to be_valid
+	end
+		
 	private
 	def author
-		Author.new(first_name: "Alan", last_name: "Turing", homepage: "http://wikipedia.org/Alan_Turing")
+		FactoryGirl.create :author
 	end
 end
