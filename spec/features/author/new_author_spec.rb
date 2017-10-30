@@ -22,5 +22,16 @@ describe "New author page", type: :feature do
 	fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
 	find('input[type="submit"]').click
   end
+  
+  it "should report that Last name can't be blank" do
+	visit new_author_path
+	
+	@old_path = current_path
+	fill_in "author_first_name", :with => "Alan"
+	fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
+	find('input[type="submit"]').click
+	expect(current_path).to eq(@old_path)
+	expect(page).to have_content("Last name can't be blank")
+  end
 
 end
