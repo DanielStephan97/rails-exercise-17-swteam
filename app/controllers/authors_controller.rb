@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
 
-	def index
+  def index
 	@author = Author.all
   end
 
