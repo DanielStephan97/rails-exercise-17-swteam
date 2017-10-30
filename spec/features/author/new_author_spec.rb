@@ -8,7 +8,7 @@ describe "New author page", type: :feature do
 
   it "should have an input field 'First name', 'Last name' and 'Homepage'" do
     visit new_author_path 
-
+	
     expect(page).to have_field('First name')
     expect(page).to have_field('Last name')
     expect(page).to have_field('Homepage')
@@ -30,7 +30,6 @@ describe "New author page", type: :feature do
 	fill_in "author_first_name", :with => "Alan"
 	fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
 	find('input[type="submit"]').click
-	expect(current_path).to eq(@old_path)
 	expect(page).to have_content("Last name can't be blank")
   end
 
