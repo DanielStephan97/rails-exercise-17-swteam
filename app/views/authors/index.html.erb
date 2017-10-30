@@ -8,10 +8,11 @@
 		<th>Homepage</th>
 	</tr>
 	
-	<%= @author.each do |author| %>
+	<% @author.each do |author| %>
 		<tr>
 			<td><%= author.name %></td>
 			<td><%= author.homepage %></td>
+			<td><%= link_to 'Show', author %></td>
 		</tr>
 	<% end %>
 </table>
