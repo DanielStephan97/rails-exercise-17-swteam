@@ -15,22 +15,24 @@ describe "New author page", type: :feature do
   end
   
   it "should throw no error if an user saves an author" do
-	visit new_author_path
-	
-	fill_in "author_first_name", :with => "Alan"
+	add_author
 	fill_in "author_last_name", :with => "Turing"
-	fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
 	find('input[type="submit"]').click
   end
   
   it "should report that Last name can't be blank" do
+	add_author
+	find('input[type="submit"]').click
+	expect(page).to have_content("Last name can't be blank")
+  end
+  
+  private 
+  def add_author
 	visit new_author_path
 	
 	@old_path = current_path
 	fill_in "author_first_name", :with => "Alan"
 	fill_in "author_homepage", :with => "http://wikipedia.org/Alan_Turing"
-	find('input[type="submit"]').click
-	expect(page).to have_content("Last name can't be blank")
   end
 
 end
