@@ -28,6 +28,10 @@ RSpec.describe Paper, type: :model do
 	expect(@paper).not_to be_valid
   end
   
+  it "should have an empty list of authors" do
+	expect(@paper.authors).to_be empty
+  end 
+  
   private 
   def paper
 	FactoryGirl.create :paper
