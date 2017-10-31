@@ -20,6 +20,14 @@ RSpec.describe Paper, type: :model do
 	expect(@paper).not_to be_valid
   end
   
+  it "should not validate without an integer Year" do
+	@paper = paper
+	@paper.year = "Test"
+	expect(@paper).not_to be_valid
+	@paper.year = 12.5
+	expect(@paper).not_to be_valid
+  end
+  
   private 
   def paper
 	FactoryGirl.create :paper

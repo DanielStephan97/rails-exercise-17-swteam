@@ -4,6 +4,6 @@ class Paper < ActiveRecord::Base
 	
 	validates :venue, presence: true
 	
-	validates :year, presence: true
+	validates :year, presence: true, numericality: {only_integer: true}
 
 end
