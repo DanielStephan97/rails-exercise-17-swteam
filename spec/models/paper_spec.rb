@@ -29,7 +29,8 @@ RSpec.describe Paper, type: :model do
   end
   
   it "should have an empty list of authors" do
-	expect(@paper.authors).to_be empty
+	@paper = paper
+	expect(paper.authors).to be_empty
   end 
   
   private 

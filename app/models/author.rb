@@ -6,4 +6,6 @@ class Author < ActiveRecord::Base
 
 	validates :last_name, presence: true
 	
+	has_many :papers
+	
 end
