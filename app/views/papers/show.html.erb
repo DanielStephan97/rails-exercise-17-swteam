@@ -13,5 +13,15 @@
 	<%= @paper.year %>
 </p>
 
+<h2>Authors:</h2>
+<% @paper.authors.each do |author| %>
+	<p>
+		<%= author.name %>
+	</p>
+<% end %>
+
+<%# <%= render 'form_add_author' , author: @paper.authors.last%> 
+
+
 <%= link_to 'Edit', edit_paper_path %> |
 <%= link_to 'Back', papers_path %>
