@@ -29,7 +29,21 @@
 		<%= f.text_field :year %>
 	</p>
 	
+	<% authors = Author.all %>
+	
+	<% for i in 1..5 do %>
+	
 	<p>
-		<%= f.submit %>
+		<%= f.label "Author " + i.to_s, for: "paper_author_id_" + i.to_s %>
+		<%= collection_select :paper, :author_ids, authors, :id, :name, 
+			{selected: @paper.author_ids[i-1], include_blank: '(none)'}, 
+			{name: "paper[author_ids][]", id: "paper_author_id_" + i.to_s}  %>
+		
+	</p>
+	
+	<% end %>
+	
+	<p>
+		<%= f.submit :submit%>
 	</p>
 <% end %>
