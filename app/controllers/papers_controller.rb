@@ -1,7 +1,7 @@
 class PapersController < ApplicationController
 
 def index
-	@paper = Paper.all
+	@paper = Paper.filter_year(params[:year])
 end
 
 def show

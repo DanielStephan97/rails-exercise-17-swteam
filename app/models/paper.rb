@@ -8,4 +8,6 @@ class Paper < ActiveRecord::Base
 
 	has_and_belongs_to_many :authors
 	
+	scope :filter_year, -> (year) { where("year == ?", year) if year.present?}
+	
 end
